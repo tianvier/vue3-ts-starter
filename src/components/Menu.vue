@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import { Menu as IconMenu, HomeFilled } from '@element-plus/icons-vue';
+import {
+    Menu as IconMenu,
+    HomeFilled,
+    DataBoard,
+} from '@element-plus/icons-vue';
 </script>
 <template>
     <el-dropdown class="menu-list">
@@ -8,7 +12,7 @@ import { Menu as IconMenu, HomeFilled } from '@element-plus/icons-vue';
         >
             Menus
             <el-icon class="el-icon--right">
-                <arrow-down />
+                <ep-arrow-down />
             </el-icon>
         </span>
         <template #dropdown>
@@ -21,6 +25,11 @@ import { Menu as IconMenu, HomeFilled } from '@element-plus/icons-vue';
                 <router-link class="menu-item" to="/detail">
                     <el-dropdown-item :icon="IconMenu">
                         Detail
+                    </el-dropdown-item>
+                </router-link>
+                <router-link class="menu-item" to="/product">
+                    <el-dropdown-item :icon="DataBoard">
+                        Product
                     </el-dropdown-item>
                 </router-link>
             </el-dropdown-menu>

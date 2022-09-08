@@ -3,7 +3,6 @@ import { useTimeAgo } from '@vueuse/core';
 import Header from '@/components/shared/Header.vue';
 import Footer from '@/components/shared/Footer.vue';
 import { useUserStore } from '@/store/user';
-import ReloadPrompt from '@/pwa/ReloadPrompt.vue';
 import ServiceWorker from './components/ServiceWorker.vue';
 
 const userStore = useUserStore();
@@ -29,7 +28,6 @@ const timeAgo = useTimeAgo(date);
             <Footer />
         </el-footer>
     </el-container>
-    <ReloadPrompt />
 </template>
 <style lang="scss">
 #app {

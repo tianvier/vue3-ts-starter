@@ -6,3 +6,6 @@ pnpm-lock.yaml
 *.json
 
 public/mockServiceWorker.js
+
+auto-imports.d.ts
+components.d.ts

@@ -55,4 +55,4 @@ const users = [
     }),
 ];
 
-export const handlers = [...users];
+export default users;
