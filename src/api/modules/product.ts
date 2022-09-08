@@ -1,13 +1,6 @@
 import request from '@/utils/axios';
 
-import { productDataType } from '@/types/product';
-
-interface IResponseType<P = Record<string, unknown>> {
-    code?: number;
-    status: number;
-    msg: string;
-    data: P;
-}
+import { productDataType, IResponseType } from '@/types/product';
 
 const getProduct = () => {
     return request<IResponseType<[productDataType]>>({
