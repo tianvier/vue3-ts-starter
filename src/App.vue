@@ -4,12 +4,15 @@ import Header from '@/components/shared/Header.vue';
 import Footer from '@/components/shared/Footer.vue';
 import { useUserStore } from '@/store/user';
 import ServiceWorker from './components/ServiceWorker.vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const userStore = useUserStore();
 
 userStore.initUser();
 
 const date = '__DATE__';
+
 const timeAgo = useTimeAgo(date);
 </script>
 <template>
@@ -18,7 +21,20 @@ const timeAgo = useTimeAgo(date);
             <Header />
         </el-header>
         <el-main class="main">
-            <RouterView />
+            <router-view v-slot="{ Component }">
+                <keep-alive>
+                    <component
+                        :is="Component"
+                        v-if="route.meta.keepAlive"
+                        :key="route.name"
+                    ></component>
+                </keep-alive>
+                <component
+                    :is="Component"
+                    v-if="!route.meta.keepAlive"
+                    :key="route.name"
+                ></component>
+            </router-view>
             <br />
             <ServiceWorker />
             <br />

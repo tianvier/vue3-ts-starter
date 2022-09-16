@@ -1,4 +1,10 @@
 <template>
+    <div>counter:{{ counter }}</div>
+    <div><button @click="counter++">click</button></div>
+    <div>testCounter:{{ testCounter }}</div>
+    <div><button @click="testCounter++">click</button></div>
+    <div>globalCount:{{ globalCount }}</div>
+    <div><button @click="globalCount++">click</button></div>
     <div>isReady: {{ isReady.toString() }}</div>
     <div>
         <el-table v-loading="isLoading" :data="DataList.data">
@@ -12,6 +18,14 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/store/product';
 import { storeToRefs } from 'pinia';
+import { counterHook, testCounter } from '@/hooks/useCounter';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    console.log(`the product component is now mounted.`);
+});
+
+const { counter, globalCount } = counterHook();
 
 const store = useProductStore();
 
